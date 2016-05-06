@@ -25,14 +25,16 @@ class DetailView extends Component {
     return (
       <View style={styles.page}>
         <Text style={styles.header}>{latestBuild.job_name} #{latestBuild.name}</Text>
-        <Text style={styles.time}>{start_time}</Text>
-        <Text style={styles.time}>{end_time}</Text>
-        <Text style={styles.time}>{end_time - start_time}</Text>
+        <Text style={styles.time}>started {start_time}</Text>
+        <Text style={styles.time}>ended {end_time}</Text>
+        <Text style={styles.time}>duration {end_time - start_time}</Text>
 
-        <Text>Inputs</Text>
-        <View>{inputs}</View>
+        <View style={styles.inputs}>
+          <Text style={styles.textHeader}>Inputs</Text>
+          <View>{inputs}</View>
+        </View>
 
-        <Text>Outputs</Text>
+        <Text style={styles.textHeader}>Outputs</Text>
       </View>
     );
   }
@@ -44,6 +46,8 @@ const styles = StyleSheet.create({
   },
   time: {
     color: 'white',
+    margin: 5,
+    padding: 5
   },
   header: {
     backgroundColor: 'red',
@@ -51,6 +55,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "700",
     padding: 10
+  },
+  textHeader: {
+    margin: 5,
+    padding: 5
+  },
+  inputs: {
+    backgroundColor: '#34495E'
   },
   input: {
     backgroundColor: '#5D6D7E',
