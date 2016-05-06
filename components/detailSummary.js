@@ -25,7 +25,7 @@ class DetailSummary extends Component {
 
     return (
       <View>
-        <JobHeader job_name={latestBuild.job_name} build_number={latestBuild.name} buttonLink={'wat'} />
+        <JobHeader job_name={latestBuild.job_name} build_number={latestBuild.name} status={latestBuild.status} />
         <Text style={styles.time}>started {start_time}</Text>
         <Text style={styles.time}>ended {end_time}</Text>
         <Text style={styles.time}>duration {end_time - start_time}</Text>

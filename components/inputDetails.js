@@ -17,7 +17,7 @@ class DetailInput extends Component {
 
     return (
       <View>
-      <JobHeader job_name={latestBuild.job_name} build_number={latestBuild.name} buttonLink={'wat'} />
+      <JobHeader job_name={latestBuild.job_name} build_number={latestBuild.name} status={latestBuild.status} />
         <Text style={styles.input}>{input.name}</Text>
       </View>
     );

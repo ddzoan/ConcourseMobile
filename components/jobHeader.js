@@ -6,13 +6,20 @@ import {
   View
 } from 'react-native';
 
+const statusColors = {
+  failed: '#E74C3C',
+  succeeded: '#2ECC71'
+}
+
 class JobHeader extends Component {
   render() {
-    const {job_name, build_number, buttonLink} = this.props;
+    const {job_name, build_number, status} = this.props;
 
     return (
       <View style={styles.page}>
-        <Text style={styles.header}>{job_name} #{build_number}</Text>
+        <Text style={[styles.header, {backgroundColor: statusColors[status]}]}>
+          {job_name} #{build_number}
+        </Text>
       </View>
     );
   }
@@ -23,12 +30,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#273747',
   },
   header: {
-    backgroundColor: 'red',
     color: 'white',
     fontSize: 14,
     fontWeight: "700",
     padding: 10
-  },
+  }
 });
 
 module.exports = JobHeader;
