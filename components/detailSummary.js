@@ -1,3 +1,5 @@
+JobHeader = require('./jobHeader')
+
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -23,6 +25,7 @@ class DetailSummary extends Component {
 
     return (
       <View>
+        <JobHeader job_name={latestBuild.job_name} build_number={latestBuild.name} buttonLink={'wat'} />
         <Text style={styles.time}>started {start_time}</Text>
         <Text style={styles.time}>ended {end_time}</Text>
         <Text style={styles.time}>duration {end_time - start_time}</Text>

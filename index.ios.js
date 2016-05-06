@@ -3,8 +3,9 @@
  * https://github.com/facebook/react-native
  * @flow
  */
- const JobView = require('./components/jobView');
- const DetailView = require('./components/detailView');
+ const DetailSummary = require('./components/detailSummary');
+ const PipelineSummary = require('./components/pipelineSummary');
+ const InputDetails = require('./components/inputDetails');
 
 import React, { Component } from 'react';
 import {
@@ -16,9 +17,10 @@ import {
 
 class ConcourseMobile extends Component {
   render() {
+    const inputs = require('./sample_resources_data').inputs;
     return (
       <View style={styles.container}>
-        <DetailView/>
+        <InputDetails input={inputs[0]}/>
       </View>
     );
   }
