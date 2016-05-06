@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: '#5D6D7E',
-    margin: 5,
-    padding: 5
+    marginVertical: 1,
+    padding: 10
   }
 });
 
