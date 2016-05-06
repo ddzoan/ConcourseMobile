@@ -10,6 +10,7 @@ class PipelineSummary extends Component {
   render() {
     return (
       <View>
+        <Text style={styles.header}>Pipeline Summary</Text>
       </View>
     );
   }

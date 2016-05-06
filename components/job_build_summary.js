@@ -1,5 +1,3 @@
-JobHeader = require('./jobHeader')
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -8,7 +6,9 @@ import {
   View
 } from 'react-native';
 
-class DetailSummary extends Component {
+const BuildHeader = require('./build_header');
+
+class JobBuildSummary extends Component {
   render() {
     const builds = require('../sample_builds_response.json');
     const resources = require('../sample_resources_data.json');
@@ -25,7 +25,7 @@ class DetailSummary extends Component {
 
     return (
       <View>
-        <JobHeader job_name={latestBuild.job_name} build_number={latestBuild.name} status={latestBuild.status} />
+        <BuildHeader job_name={latestBuild.job_name} build_number={latestBuild.name} status={latestBuild.status} />
         <Text style={styles.time}>started {start_time}</Text>
         <Text style={styles.time}>ended {end_time}</Text>
         <Text style={styles.time}>duration {end_time - start_time}</Text>
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   }
 });
 
-module.exports = DetailSummary;
+module.exports = JobBuildSummary;

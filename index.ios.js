@@ -3,9 +3,8 @@
  * https://github.com/facebook/react-native
  * @flow
  */
- const DetailSummary = require('./components/detailSummary');
- const PipelineSummary = require('./components/pipelineSummary');
- const InputDetails = require('./components/inputDetails');
+const PipelineSummary = require('./components/pipeline_summary');
+const InputDetails = require('./components/input_details');
 
 import React, { Component } from 'react';
 import {

@@ -1,5 +1,3 @@
-JobHeader = require('./jobHeader')
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -8,7 +6,9 @@ import {
   View
 } from 'react-native';
 
-class DetailInput extends Component {
+const BuildHeader = require('./build_header');
+
+class InputDetails extends Component {
   render() {
     const {input} = this.props;
     const builds = require('../sample_builds_response.json');
@@ -17,7 +17,7 @@ class DetailInput extends Component {
 
     return (
       <View>
-      <JobHeader job_name={latestBuild.job_name} build_number={latestBuild.name} status={latestBuild.status} />
+      <BuildHeader job_name={latestBuild.job_name} build_number={latestBuild.name} status={latestBuild.status} />
         <Text style={styles.input}>{input.name}</Text>
       </View>
     );
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
   }
 });
 
-module.exports = DetailInput;
+module.exports = InputDetails;

@@ -11,7 +11,7 @@ const statusColors = {
   succeeded: '#2ECC71'
 }
 
-class JobHeader extends Component {
+class BuildHeader extends Component {
   render() {
     const {job_name, build_number, status} = this.props;
 
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
   }
 });
 
-module.exports = JobHeader;
+module.exports = BuildHeader;
