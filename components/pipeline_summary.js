@@ -1,3 +1,5 @@
+const Icon = require('react-native-vector-icons/FontAwesome');
+
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -21,11 +23,14 @@ class Pipeline extends Component {
   render() {
     const {pipeline, jobs} = this.props;
 
+    const pauseButton = <Icon name="pause" size={20} color="white" />;
+    const playButton = <Icon name="play" size={20} color="white" />;
+
     return (
       <View style={styles.bar}>
         <Text style={styles.pipeline}>{pipeline.name}</Text>
         <TouchableHighlight onPress={this._onPressPauseButton}>
-          <Text style={[styles.button, pipeline.paused ? styles.paused : styles.play]}>{pipeline.paused ? 'play' : 'pause'}</Text>
+          <Text style={[styles.button, pipeline.paused ? styles.paused : styles.play]}>{pipeline.paused ? playButton : pauseButton}</Text>
         </TouchableHighlight>
       </View>
     );
