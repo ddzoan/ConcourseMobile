@@ -3,7 +3,7 @@
  * https://github.com/facebook/react-native
  * @flow
  */
- const Job = require('./components/job')
+ const JobView = require('./components/jobView');
 
 import React, { Component } from 'react';
 import {
@@ -17,7 +17,7 @@ class ConcourseMobile extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Job/>
+        <JobView/>
       </View>
     );
   }
