@@ -14,12 +14,30 @@ import {
   View
 } from 'react-native';
 
+import JsonFetcher from './api/json_fetcher';
+
 class ConcourseMobile extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      pipelines: []
+    };
+
+    this.fetcher = new JsonFetcher();
+
+    this.fetcher.fetchPipelines().then((resource) => {
+      resource.json().then((pipelines) => {
+        this.setState({pipelines});
+      });
+    })
+  }
+
   render() {
     const inputs = require('./sample_resources_data').inputs;
     return (
       <View style={styles.container}>
-        <InputDetails input={inputs[0]}/>
+        <PipelineSummary pipelines={this.state.pipelines}/>
       </View>
     );
   }
