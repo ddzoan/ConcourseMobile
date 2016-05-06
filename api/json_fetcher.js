@@ -16,15 +16,15 @@ class JsonFetcher {
   }
 
   fetchJobs(pipelineName) {
-    return fetch(`${this.apiUrl}/pipelines/${pipelineName}/jobs`, this.baseOptions); 
+    return fetch(`${this.apiUrl}/pipelines/${pipelineName}/jobs`, this.baseOptions);
   }
 
   fetchResources(pipelineName) {
-    return fetch(`${this.apiUrl}/pipelines/${pipelineName}/resources`, this.baseOptions); 
+    return fetch(`${this.apiUrl}/pipelines/${pipelineName}/resources`, this.baseOptions);
   }
 
   fetchBuilds() {
-    return fetch(`${this.apiUrl}/builds`, this.baseOptions);  
+    return fetch(`${this.apiUrl}/builds`, this.baseOptions);
   }
 
   // Job build endpoints
@@ -33,19 +33,27 @@ class JsonFetcher {
   }
 
   fetchBuildPreparation(buildId) {
-    return fetch(`${this.apiUrl}/builds/${buildId}/preparation`, this.baseOptions); 
+    return fetch(`${this.apiUrl}/builds/${buildId}/preparation`, this.baseOptions);
   }
 
   fetchBuildPlan(buildId) {
-    return fetch(`${this.apiUrl}/builds/${buildId}/plan`, this.baseOptions); 
+    return fetch(`${this.apiUrl}/builds/${buildId}/plan`, this.baseOptions);
   }
 
   fetchBuildResources(buildId) {
-    return fetch(`${this.apiUrl}/builds/${buildId}/resources`, this.baseOptions); 
+    return fetch(`${this.apiUrl}/builds/${buildId}/resources`, this.baseOptions);
   }
 
   fetchBuildEvents(buildId) {
-    return fetch(`${this.apiUrl}/builds/${buildId}/events`, this.baseOptions); 
+    return fetch(`${this.apiUrl}/builds/${buildId}/events`, this.baseOptions);
+  }
+
+  pause(pipeline) {
+    return fetch(`${this.apiUrl}/pipelines/${pipeline}/pause`, Object.assign({}, this.baseOptions, {method: 'PUT'}));
+  }
+
+  unpause(pipeline) {
+    return fetch(`${this.apiUrl}/pipelines/${pipeline}/unpause`, Object.assign({}, this.baseOptions, {method: 'PUT'}));
   }
 }
 

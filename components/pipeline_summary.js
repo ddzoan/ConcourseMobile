@@ -18,24 +18,33 @@ class Pipeline extends Component {
     const {pipeline} = this.props;
 
     this.state = {
-      jobs: []
+      jobs: [],
+      paused: pipeline.paused
     };
 
     this.fetcher = new JsonFetcher();
     this.fetcher.fetchJobs(pipeline.name).then((jobsResource) => {
       jobsResource.json().then((jobsJson) => {
-        console.log(jobsJson);
         this.setState({jobs: jobsJson});
       });
     });
   }
 
-  _onPressPauseButton() {
-    console.log('pressed');
-  }
+  _onPressButton = () => {
+    if(this.state.paused){
+      this.fetcher.unpause(this.props.pipeline.name).then(() => {
+        this.setState({paused: false});
+      })
+    } else {
+      this.fetcher.pause(this.props.pipeline.name).then(() => {
+        this.setState({paused: true});
+      })
+    }
+  };
 
   render() {
     const {pipeline} = this.props;
+    const {paused} = this.state;
 
     let jobBars = this.state.jobs.filter((job) => {
       return job.finished_build.status === 'failed'
@@ -47,8 +56,6 @@ class Pipeline extends Component {
       );
     });
 
-    console.log(jobBars);
-
     const pauseButton = <Icon name="pause" size={16} color="white" />;
     const playButton = <Icon name="play" size={16} color="white" />;
 
@@ -56,8 +63,8 @@ class Pipeline extends Component {
       <View>
         <View style={styles.bar}>
           <Text style={styles.pipeline}>{pipeline.name}</Text>
-          <TouchableHighlight onPress={this._onPressPauseButton}>
-            <Text style={[styles.button, pipeline.paused ? styles.paused : styles.play]}>{pipeline.paused ? playButton : pauseButton}</Text>
+          <TouchableHighlight onPress={this._onPressButton.bind()}>
+            <Text style={[styles.button, paused ? styles.paused : styles.play]}>{paused ? playButton : pauseButton}</Text>
           </TouchableHighlight>
         </View>
         {jobBars}
