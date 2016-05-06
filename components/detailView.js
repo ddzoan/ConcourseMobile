@@ -27,7 +27,7 @@ class DetailView extends Component {
     return (
       <View style={styles.page}>
         <Text style={styles.header}>{latestBuild.job_name} #{latestBuild.name}</Text>
-        <DetailInput  />
+        <DetailSummary />
       </View>
     );
   }
