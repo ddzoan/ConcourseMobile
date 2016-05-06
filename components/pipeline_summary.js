@@ -42,7 +42,7 @@ class Pipeline extends Component {
     }).map((job) => {
       return (
         <View key={job.name} style={styles.jobBar}>
-          <Text style={styles.jobName}>{job.name}</Text>
+          <Icon style={styles.jobBarIcon} name="times" size={16} color="white" /><Text style={styles.jobName}>{job.name}</Text>
         </View>
       );
     });
@@ -110,13 +110,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#5D6D7E'
   },
   jobBar: {
-    flex: 1,
+    flexDirection: 'row',
     height: 44,
     marginBottom: 4,
-    justifyContent: 'center'
+    alignItems: 'center',
+    backgroundColor: '#E74C3C'
+  },
+  jobBarIcon: {
+    paddingLeft: 10
   },
   jobName: {
-    color: 'white'
+    color: 'white',
+    paddingLeft: 10
   }
 });
 
