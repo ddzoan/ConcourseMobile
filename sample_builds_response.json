@@ -1,4 +1,4 @@
-[
+module.exports = [
    {
       "id":5450,
       "name":"159",

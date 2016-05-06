@@ -1,4 +1,4 @@
-
+module.exports = 
    {
       "name":"build-base-docker-image",
       "url":"/pipelines/main/jobs/build-base-docker-image",

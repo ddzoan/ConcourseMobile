@@ -4,6 +4,7 @@
  * @flow
  */
  const JobView = require('./components/jobView');
+ const DetailView = require('./components/detailView');
 
 import React, { Component } from 'react';
 import {
@@ -17,7 +18,7 @@ class ConcourseMobile extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <JobView/>
+        <DetailView/>
       </View>
     );
   }
@@ -25,10 +26,9 @@ class ConcourseMobile extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingTop: 25,
     backgroundColor: '#273747',
+    flex: 1
   }
 });
 
