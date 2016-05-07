@@ -30,9 +30,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#273747',
   },
   header: {
-    color: '#E6E7E8',
-    fontFamily: 'Courier',
-    fontWeight: '600',
+    color: 'white',
     fontSize: 14,
     fontWeight: "700",
     padding: 10

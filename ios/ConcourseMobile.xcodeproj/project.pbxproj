@@ -26,10 +26,10 @@
 		1A15D5031CDD57B40036E4AE /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A15D4FB1CDD57B40036E4AE /* FontAwesome.ttf */; };
 		1A15D5041CDD57B40036E4AE /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A15D4FC1CDD57B40036E4AE /* Foundation.ttf */; };
 		1A15D5051CDD57B40036E4AE /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A15D4FD1CDD57B40036E4AE /* Ionicons.ttf */; };
+		1A15D5061CDD57B40036E4AE /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A15D4FE1CDD57B40036E4AE /* MaterialIcons.ttf */; };
 		1A15D5071CDD57B40036E4AE /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A15D4FF1CDD57B40036E4AE /* Octicons.ttf */; };
+		1A15D5081CDD57B40036E4AE /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A15D5001CDD57B40036E4AE /* Zocial.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		AEBA59601CDD5F390033C134 /* PT_Mono in Resources */ = {isa = PBXBuildFile; fileRef = AEBA595F1CDD5F390033C134 /* PT_Mono */; };
-		AEBA59621CDD5F580033C134 /* PTM55FT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEBA59611CDD5F580033C134 /* PTM55FT.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,11 +137,11 @@
 		1A15D4FB1CDD57B40036E4AE /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		1A15D4FC1CDD57B40036E4AE /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
 		1A15D4FD1CDD57B40036E4AE /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		1A15D4FE1CDD57B40036E4AE /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		1A15D4FF1CDD57B40036E4AE /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		1A15D5001CDD57B40036E4AE /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		AEBA595F1CDD5F390033C134 /* PT_Mono */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PT_Mono; path = ../../../Downloads/PT_Mono; sourceTree = "<group>"; };
-		AEBA59611CDD5F580033C134 /* PTM55FT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PTM55FT.ttf; path = ../../../../../Downloads/PT_Mono/PTM55FT.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,13 +270,14 @@
 		1A15D4F81CDD57B40036E4AE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				AEBA59611CDD5F580033C134 /* PTM55FT.ttf */,
 				1A15D4F91CDD57B40036E4AE /* Entypo.ttf */,
 				1A15D4FA1CDD57B40036E4AE /* EvilIcons.ttf */,
 				1A15D4FB1CDD57B40036E4AE /* FontAwesome.ttf */,
 				1A15D4FC1CDD57B40036E4AE /* Foundation.ttf */,
 				1A15D4FD1CDD57B40036E4AE /* Ionicons.ttf */,
+				1A15D4FE1CDD57B40036E4AE /* MaterialIcons.ttf */,
 				1A15D4FF1CDD57B40036E4AE /* Octicons.ttf */,
+				1A15D5001CDD57B40036E4AE /* Zocial.ttf */,
 			);
 			name = Fonts;
 			path = "../node_modules/react-native-vector-icons/Fonts";
@@ -318,7 +319,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				AEBA595F1CDD5F390033C134 /* PT_Mono */,
 				1A15D4F81CDD57B40036E4AE /* Fonts */,
 				13B07FAE1A68108700A75B9A /* ConcourseMobile */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -538,13 +538,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A15D5061CDD57B40036E4AE /* MaterialIcons.ttf in Resources */,
 				1A15D5071CDD57B40036E4AE /* Octicons.ttf in Resources */,
-				AEBA59601CDD5F390033C134 /* PT_Mono in Resources */,
+				1A15D5081CDD57B40036E4AE /* Zocial.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				1A15D5031CDD57B40036E4AE /* FontAwesome.ttf in Resources */,
 				1A15D5021CDD57B40036E4AE /* EvilIcons.ttf in Resources */,
 				1A15D5051CDD57B40036E4AE /* Ionicons.ttf in Resources */,
-				AEBA59621CDD5F580033C134 /* PTM55FT.ttf in Resources */,
 				1A15D5041CDD57B40036E4AE /* Foundation.ttf in Resources */,
 				1A15D5011CDD57B40036E4AE /* Entypo.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
