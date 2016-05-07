@@ -11,17 +11,19 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  NavigatorIOS,
+  ActivityIndicatorIOS
 } from 'react-native';
 
 import JsonFetcher from './api/json_fetcher';
 
-class ConcourseMobile extends Component {
+class TestView extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      pipelines: []
+      pipelines: null
     };
 
     this.fetcher = new JsonFetcher();
@@ -34,11 +36,43 @@ class ConcourseMobile extends Component {
   }
 
   render() {
+    if(this.state.pipelines) {
+      return (
+        <View style={styles.container}>
+          <PipelineSummary navigator={this.props.navigator} pipelines={this.state.pipelines}/>
+        </View>
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <ActivityIndicatorIOS
+            animating={true}
+            style={[styles.centering, {height: 80}]}
+            size="large"
+          />
+        </View>
+      );
+    }
+  }
+}
+
+class ConcourseMobile extends Component {
+  render() {
     const inputs = require('./sample_resources_data').inputs;
     return (
-      <View style={styles.container}>
-        <PipelineSummary pipelines={this.state.pipelines}/>
-      </View>
+      // <View style={styles.container}>
+      //   <PipelineSummary pipelines={this.state.pipelines}/>
+      // </View>
+      <NavigatorIOS
+        style={[styles.container]}
+        initialRoute={{
+          title: 'Pipeline Summary',
+          component: TestView,
+        }}
+        itemWrapperStyle={styles.container}
+        barTintColor="#273747"
+        titleTextColor="white"
+      />
     );
   }
 }
@@ -48,7 +82,11 @@ const styles = StyleSheet.create({
     paddingTop: 25,
     backgroundColor: '#273747',
     flex: 1
-  }
+  },
+  centering: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 AppRegistry.registerComponent('ConcourseMobile', () => ConcourseMobile);

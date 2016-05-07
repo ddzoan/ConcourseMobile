@@ -9,6 +9,8 @@ import {
   View
 } from 'react-native';
 
+import JobBuildSummary from './job_build_summary';
+
 import JsonFetcher from '../api/json_fetcher';
 
 class Pipeline extends Component {
@@ -42,6 +44,13 @@ class Pipeline extends Component {
     }
   };
 
+  _onPressJobBar = () => {
+    this.props.navigator.push({
+      title: this.props.pipeline.name,
+      component: JobBuildSummary,
+    });
+  }
+
   render() {
     const {pipeline} = this.props;
     const {paused} = this.state;
@@ -50,9 +59,11 @@ class Pipeline extends Component {
       return job.finished_build.status === 'failed'
     }).map((job) => {
       return (
-        <View key={job.name} style={styles.jobBar}>
-          <Icon style={styles.jobBarIcon} name="times" size={16} color="white" /><Text style={styles.jobName}>{job.name}</Text>
-        </View>
+        <TouchableHighlight onPress={this._onPressJobBar}>
+          <View key={job.name} style={styles.jobBar} onPress={this._onPressJobBar}>
+            <Icon style={styles.jobBarIcon} name="times" size={16} color="white" /><Text style={styles.jobName}>{job.name}</Text>
+          </View>
+        </TouchableHighlight>
       );
     });
 
@@ -77,12 +88,11 @@ class PipelineSummary extends Component {
   render() {
     const {pipelines} = this.props;
     const content = pipelines.map((pipeline) => {
-      return <Pipeline pipeline={pipeline} key={pipeline.url} jobs=''/>
+      return <Pipeline navigator={this.props.navigator} pipeline={pipeline} key={pipeline.url} jobs=''/>
     });
 
     return (
-      <View>
-        <Text style={styles.header}>Pipeline Summary</Text>
+      <View style={{flex: 1}}>
         {content}
       </View>
     );
