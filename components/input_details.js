@@ -14,14 +14,14 @@ class InputDetails extends Component {
     // const {input} = this.props;
     const builds = require('../sample_builds_response.json');
     const resources = require('../sample_resources_data.json');
-    const input = resources.inputs[1];
+    const input = resources.inputs[0];
     const latestBuild = builds[0];
 
     const metadata = input.metadata.map((line, i) => {
       return (
         <View key={i} style={styles.metadata}>
-          <Text style={[styles.details, styles.name]}>{line.name}</Text>
-          <Text style={[styles.details, styles.value]}>{line.value}</Text>
+          <Text style={[styles.name, styles.details]}>{line.name}</Text>
+          <Text style={[styles.value, styles.details]}>{line.value}</Text>
         </View>
       )
     })
@@ -48,12 +48,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   name: {
-    flex: 2,
-    paddingVertical: 0
+    flex: 2
   },
   value: {
-    flex: 4,
-    paddingVertical: 0
+    flex: 4
   },
   jobBar: {
     backgroundColor: '#5D6D7E',
@@ -78,7 +76,6 @@ const styles = StyleSheet.create({
   },
   details: {
     color: 'white',
-    paddingVertical: 5
   }
 });
 
