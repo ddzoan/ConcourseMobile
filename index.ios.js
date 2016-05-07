@@ -4,6 +4,7 @@
  * @flow
  */
 const PipelineSummary = require('./components/pipeline_summary');
+const JobBuildSummary = require('./components/job_build_summary');
 const InputDetails = require('./components/input_details');
 
 import React, { Component } from 'react';
