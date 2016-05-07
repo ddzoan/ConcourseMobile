@@ -13,7 +13,8 @@ import {
   Text,
   View,
   NavigatorIOS,
-  ActivityIndicatorIOS
+  ActivityIndicatorIOS,
+  StatusBar
 } from 'react-native';
 
 import JsonFetcher from './api/json_fetcher';
@@ -70,8 +71,9 @@ class ConcourseMobile extends Component {
           component: TestView,
         }}
         itemWrapperStyle={styles.container}
-        barTintColor="#273747"
+        barTintColor="#19252F"
         titleTextColor="white"
+        translucent={false}
       />
     );
   }
@@ -79,7 +81,6 @@ class ConcourseMobile extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 25,
     backgroundColor: '#273747',
     flex: 1
   },
@@ -88,5 +89,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+StatusBar.setBarStyle('light-content', true);
 
 AppRegistry.registerComponent('ConcourseMobile', () => ConcourseMobile);

@@ -6,7 +6,8 @@ import {
   StyleSheet,
   TouchableHighlight,
   Text,
-  View
+  View,
+  ActivityIndicatorIOS
 } from 'react-native';
 
 import JobBuildSummary from './job_build_summary';
@@ -67,16 +68,25 @@ class Pipeline extends Component {
       );
     });
 
-    const pauseButton = <Icon name="pause" size={16} color="white" />;
-    const playButton = <Icon name="play" size={16} color="white" />;
+    let barButton;
+    if(this.state.jobs.length > 0) {
+      const pauseButton = <Icon name="pause" size={16} color="white" />;
+      const playButton = <Icon name="play" size={16} color="white" />;
+      barButton = (<TouchableHighlight onPress={this._onPressButton.bind()}>
+        <Text style={[styles.button, paused ? styles.paused : styles.play]}>{paused ? playButton : pauseButton}</Text>
+      </TouchableHighlight>);
+    } else {
+      barButton = <ActivityIndicatorIOS
+          animating={true}
+          style={[styles.centering, {height: 44, paddingRight: 12}]}
+          size="small"
+        />
+    }
 
     return (
       <View>
         <View style={styles.bar}>
-          <Text style={styles.pipeline}>{pipeline.name}</Text>
-          <TouchableHighlight onPress={this._onPressButton.bind()}>
-            <Text style={[styles.button, paused ? styles.paused : styles.play]}>{paused ? playButton : pauseButton}</Text>
-          </TouchableHighlight>
+          <Text style={styles.pipeline}>{pipeline.name}</Text>{barButton}
         </View>
         {jobBars}
       </View>
@@ -104,7 +114,8 @@ const styles = StyleSheet.create({
     height: 44,
     backgroundColor: '#19252F',
     flexDirection: 'row',
-    marginTop: 5
+    marginTop: 5,
+    marginBottom: 5
   },
   pipeline: {
     flex: 1,
@@ -139,7 +150,11 @@ const styles = StyleSheet.create({
   jobName: {
     color: 'white',
     paddingLeft: 10
-  }
+  },
+  centering: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 module.exports = PipelineSummary;
